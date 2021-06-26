@@ -97,7 +97,6 @@ Page({
   },
   changeUserKind: function (e) {
     user_kind=e.detail.value;
-    console.log('radio发生change事件，携带value值为：', user_kind)
   },
   registerFactory:function(role,userid) {//简单工厂函数
     console.log("factory start");
