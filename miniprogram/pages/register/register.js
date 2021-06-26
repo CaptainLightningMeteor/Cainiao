@@ -108,9 +108,10 @@ Page({
       console.log("producing user");
     }
     switch(role){//根据注册选择的账户类型创建用户对象
+      /*
       case "USER":
         return new user({name:register_name,password:register_password,kind:"用户"});
-        break;
+        break;*/
       case "BRANCH_DEPOSITORY_MANAGER":
         return new user({name:register_name,password:register_password,kind:"分仓管理员"});
         break;
@@ -154,7 +155,6 @@ Page({
             console.log("success "+register_name+' '+register_password+' '+confirm_password+' '+user_kind);
             let new_user=this.registerFactory(user_kind,user_register_info.length+1);
             console.log("factory has produced a new accout:"+new_user.name+' '+new_user.password+' '+new_user.kind+' '+new_user.id);
-            
             if(new_user.kind == "总仓管理员"){
             user_register.add({
 
@@ -167,8 +167,7 @@ Page({
               success(res){
                 console.log('注册成功');
               }
-            })
-          }
+            })}
             if(new_user.kind == "分仓管理员"){
               user_register.add({
                 data:{
@@ -189,6 +188,21 @@ Page({
               wx.navigateTo({   //跳转首页
                 url: '../demo/demo',  
               })}
+              /*
+              if(new_user.kind == "用户"){
+                user_register.add({
+    
+                  data:{
+                    password:new_user.password,
+                    user_id:3,
+                    user_name:new_user.name,
+                    userid:new_user.kind
+                  },
+                  success(res){
+                    console.log('注册成功');
+                  }
+                })}
+                */
           }      
         }
       else{
