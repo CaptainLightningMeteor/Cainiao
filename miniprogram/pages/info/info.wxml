@@ -13,7 +13,10 @@
    
     <view class='item'>
       <text class='left'>ID</text><text class='right'>{{name}}</text>
+
+      
     </view>
+
     <view class='item'>
       <text class='left'>身份</text><text class='right'>{{id}}</text>
     </view>

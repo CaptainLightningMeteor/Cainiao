@@ -26,6 +26,34 @@ Page({
 
   },
 
+  //查看详情页
+  detail:function(event){
+    var that = this
+    console.log('success')
+    var searchid = event.currentTarget.dataset.searchid
+    console.log(searchid)
+    db.collection('expressage').get({
+      success:(res)=>{
+        var searchinfo = res.data
+        console.log('success')
+        for(let i = 0; i < searchinfo.length; i++){
+          if(searchid == searchinfo[i].scanCodeMsg){
+            console.log(searchinfo[i].phonenum)
+            wx.setStorageSync('detailmsg', searchinfo[i].scanCodeMsg)
+            wx.setStorageSync('detailnum', searchinfo[i].num)
+            wx.setStorageSync('detailphone', searchinfo[i].phonenum)
+            wx.setStorageSync('detailstate', searchinfo[i].state)
+            wx.setStorageSync('detailgoods', searchinfo[i].goods)
+            wx.navigateTo({
+              url: '../info1/info1',
+            })
+          }
+        }
+
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
