@@ -89,8 +89,9 @@ Page({
   },
 resetpwd:function(e){
     var no=this.data.myinfo.no;
+    console.log(no);
     wx.navigateTo({
-      url: '../password/password?no=' + no,
+      url: '../resetpwd/resetpwd?no=' + no,
     })
   },
   setemail: function (e) {
